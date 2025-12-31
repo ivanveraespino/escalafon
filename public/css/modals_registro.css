@@ -1,0 +1,57 @@
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: grey;
+}
+.modal-fullscreen {
+    max-width: none;
+    max-height: none;
+    margin: 0;
+}
+
+#loadingSpinner {
+    text-align: center;
+    margin-top: 20px;
+}
+.fa-spinner {
+    font-size: 24px;
+}
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%; 
+
+}
+.dropdown-item {
+    cursor: pointer;
+}
+
+/**/
+
+.collapse-inner .row {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.collapse-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.collapse-item i {
+    margin-right: 1px;
+    transition: transform 0.3s ease;
+}
+
+.collapse-item:hover i {
+    transform: scale(1.2);
+}
+
+.bg-light.px-3.py-2.collapse-inner {
+    min-width: 240px; /* Ensure enough horizontal space */
+    max-width: 100%; /* Prevent overflow */
+}
+

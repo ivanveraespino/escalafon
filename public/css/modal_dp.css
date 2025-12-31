@@ -1,0 +1,20 @@
+/*ESTILOS MODAL DP*/
+#customModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#toggleButton {
+    order: -1; /* Mueve el botón de edición al principio */
+}
+#closeButton {
+    order: 1; /* Mueve el botón de cierre al final */
+}
+.chip {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    margin: 0.25em;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    font-size: 14px;
+}

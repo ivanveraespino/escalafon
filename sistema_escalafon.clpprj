@@ -1,0 +1,797 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="C:\xampp\htdocs\sistema_escalafon\sistema_escalafon.clpprj">
+ <settings>
+  <PM_URL><![CDATA[http://localhost//sistema_escalafon]]></PM_URL>
+  <PM_HOME_URL><![CDATA[http://localhost//sistema_escalafon]]></PM_HOME_URL>
+  <PM_LIBS><![CDATA[]]></PM_LIBS>
+  <PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION>
+  <PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR>
+  <PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE>
+  <PM_LANGUAGE><![CDATA[]]></PM_LANGUAGE>
+ </settings>
+ <removed value=";"/>
+ <added value=""/>
+ <lastopfiles>
+  <file name="C:\xampp\htdocs\sistema_escalafon\app\Http\Controllers\PersonalController.php"/>
+  <file name="C:\xampp\htdocs\sistema_escalafon\resources\views\Personal\index.blade.php"/>
+  <file name="C:\xampp\htdocs\sistema_escalafon\resources\views\employees\personal.blade.php"/>
+  <lastactivefile name=""/>
+ </lastopfiles>
+ <errors version="1.12.0"/>
+ <cakedata/>
+ <dplmenupath/>
+ <laravael>
+  <facade name="app" class="App"/>
+  <facade name="auth" class="Auth"/>
+  <facade name="blade.compiler" class="Blade"/>
+  <facade name="cache" class="Cache"/>
+  <facade name="config" class="Config"/>
+  <facade name="cookie" class="Cookie"/>
+  <facade name="encrypter" class="Crypt"/>
+  <facade name="db" class="DB"/>
+  <facade name="datatables" class="DataTables"/>
+  <facade name="date" class="Date"/>
+  <facade name="events" class="Event"/>
+  <facade name="Facade does not implement getFacadeAccessor method." class="Facade"/>
+  <facade name="fastexcel" class="FastExcel"/>
+  <facade name="files" class="File"/>
+  <facade name="form" class="FormFacade"/>
+  <facade name="hash" class="Hash"/>
+  <facade name="html" class="HtmlFacade"/>
+  <facade name="translator" class="Lang"/>
+  <facade name="log" class="Log"/>
+  <facade name="mail.manager" class="Mail"/>
+  <facade name="auth.password" class="Password"/>
+  <facade name="dompdf.wrapper" class="Pdf"/>
+  <facade name="pipeline" class="Pipeline"/>
+  <facade name="queue" class="Queue"/>
+  <facade name="redirect" class="Redirect"/>
+  <facade name="redis" class="Redis"/>
+  <facade name="request" class="Request"/>
+  <facade name="router" class="Route"/>
+  <facade name="db.schema" class="Schema"/>
+  <facade name="session" class="Session"/>
+  <facade name="filesystem" class="Storage"/>
+  <facade name="url" class="URL"/>
+  <facade name="validator" class="Validator"/>
+  <facade name="view" class="View"/>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\laravel\framework\src\Illuminate\Cache\CacheServiceProvider.php">
+   <type name="memcached.connector" class="MemcachedConnector"/>
+  </file>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\laravel\framework\src\Illuminate\Database\DatabaseServiceProvider.php">
+   <type name="db.transactions" class="DatabaseTransactionsManager"/>
+  </file>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\laravel\framework\src\Illuminate\Filesystem\FilesystemServiceProvider.php">
+   <type name="files" class="Filesystem"/>
+  </file>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php">
+   <type name="view.engine.resolver" class="EngineResolver"/>
+  </file>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\laravel\tinker\src\TinkerServiceProvider.php">
+   <type name="command.tinker" class="TinkerCommand"/>
+  </file>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\yajra\laravel-datatables-fractal\src\FractalServiceProvider.php">
+   <type name="datatables.fractal" class="Manager"/>
+  </file>
+  <file name="C:\xampp\htdocs\sistema_escalafon\vendor\yajra\laravel-datatables-oracle\src\DataTablesServiceProvider.php">
+   <type name="datatables" class="DataTables"/>
+   <type name="datatables.request" class="Request"/>
+  </file>
+ </laravael>
+ <smartyassings/>
+ <twigtemplate/>
+ <yiidata/>
+ <todoblock>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\app\Http\Controllers\CronogramaController.php">
+   <todo pos="34;158" name="todos los campos"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\app\Http\Controllers\EmployeeController.php">
+   <todo pos="26;109" name="todos los datos"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\database\seeders\ContratoSeeder.php">
+   <todo pos="74;19" name="todos los DNIs de la tabla personal"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\database\seeders\CronogramaVacacionesSeeder.php">
+   <todo pos="58;13" name="todos los DNIs de la tabla `personal`"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\js\app.js">
+   <todo pos="5;2075" name="TODO: Remove in v5"/>
+   <todo pos="5;4372" name="todo (fat): these should probably be refactored out of modal.js"/>
+   <todo pos="13;5653" name="TODO (fat): remove sketch reliance on jQuery position/offset"/>
+   <todo pos="8;7117" name="TODO: identify versions"/>
+   <todo pos="7;7131" name="TODO: identify versions"/>
+   <todo pos="48;10721" name="TODO: Drop _data, _removeData)"/>
+   <todo pos="2;10789" name="TODO: Now that all calls to _data and _removeData have been replaced"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\js\busquedas.js">
+   <todo pos="68;34" name="todos los registros"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\js\main.js">
+   <todo pos="16;2" name="todos los modales en la página"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\bootstrap5\js\bootstrap.bundle.js">
+   <todo pos="5;378" name="TODO: tooltip passes `false` instead of selector, so we need to check"/>
+   <todo pos="5;763" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="5;1139" name="TODO:v6 remove boolean support"/>
+   <todo pos="13;1182" name="TODO use `document.visibilityState`"/>
+   <todo pos="9;1342" name="TODO: change tests that use empty divs to avoid this check"/>
+   <todo pos="7;3600" name="TODO: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.3/forms/input-group/"/>
+   <todo pos="71;3774" name="TODO: v6 remove"/>
+   <todo pos="7;3856" name="TODO: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.3/forms/input-group/"/>
+   <todo pos="7;5144" name="TODO: v6 remove this or make it optional"/>
+   <todo pos="7;5230" name="TODO: remove this check in v6"/>
+   <todo pos="7;5235" name="TODO: v6 the following can be achieved with CSS only"/>
+   <todo pos="5;5606" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;5614" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="7;5673" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="7;5676" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+   <todo pos="108;5872" name="TODO: could only be `tab` in v6"/>
+   <todo pos="9;5886" name="TODO: should throw exception in v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\bootstrap5\js\bootstrap.esm.js">
+   <todo pos="3;374" name="TODO: tooltip passes `false` instead of selector, so we need to check"/>
+   <todo pos="3;759" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="3;1135" name="TODO:v6 remove boolean support"/>
+   <todo pos="11;1178" name="TODO use `document.visibilityState`"/>
+   <todo pos="7;1338" name="TODO: change tests that use empty divs to avoid this check"/>
+   <todo pos="5;1757" name="TODO: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.3/forms/input-group/"/>
+   <todo pos="69;1931" name="TODO: v6 remove"/>
+   <todo pos="5;2013" name="TODO: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.3/forms/input-group/"/>
+   <todo pos="5;3301" name="TODO: v6 remove this or make it optional"/>
+   <todo pos="5;3387" name="TODO: remove this check in v6"/>
+   <todo pos="5;3392" name="TODO: v6 the following can be achieved with CSS only"/>
+   <todo pos="3;3763" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="3;3771" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;3830" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="5;3833" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+   <todo pos="106;4029" name="TODO: could only be `tab` in v6"/>
+   <todo pos="7;4043" name="TODO: should throw exception in v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\bootstrap5\js\bootstrap.js">
+   <todo pos="5;397" name="TODO: tooltip passes `false` instead of selector, so we need to check"/>
+   <todo pos="5;782" name="TODO: this is now unused; remove later along with prev()"/>
+   <todo pos="5;1158" name="TODO:v6 remove boolean support"/>
+   <todo pos="13;1201" name="TODO use `document.visibilityState`"/>
+   <todo pos="9;1361" name="TODO: change tests that use empty divs to avoid this check"/>
+   <todo pos="7;1780" name="TODO: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.3/forms/input-group/"/>
+   <todo pos="71;1954" name="TODO: v6 remove"/>
+   <todo pos="7;2036" name="TODO: v6 revert #37011 &amp; change markup https://getbootstrap.com/docs/5.3/forms/input-group/"/>
+   <todo pos="7;3324" name="TODO: v6 remove this or make it optional"/>
+   <todo pos="7;3410" name="TODO: remove this check in v6"/>
+   <todo pos="7;3415" name="TODO: v6 the following can be achieved with CSS only"/>
+   <todo pos="5;3786" name="TODO: v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="5;3794" name="TODO v6 @deprecated, keep it for backwards compatibility reasons"/>
+   <todo pos="7;3853" name="TODO: on v6 target should be given explicitly &amp; remove the {target: 'ss-target'} case"/>
+   <todo pos="7;3856" name="TODO: v6 Only for backwards compatibility reasons. Use rootMargin only"/>
+   <todo pos="108;4052" name="TODO: could only be `tab` in v6"/>
+   <todo pos="9;4066" name="TODO: should throw exception in v6"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\bootstrap\js\bootstrap.bundle.js">
+   <todo pos="5;5096" name="todo (fat): these should probably be refactored out of modal.js"/>
+   <todo pos="13;6381" name="TODO (fat): remove sketch reliance on jQuery position/offset"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\bootstrap\js\bootstrap.js">
+   <todo pos="5;2483" name="todo (fat): these should probably be refactored out of modal.js"/>
+   <todo pos="13;3768" name="TODO (fat): remove sketch reliance on jQuery position/offset"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\chart.js\Chart.bundle.js">
+   <todo pos="1;2995" name="TODO(v3): remove 'global' from namespace.  all default are global and"/>
+   <todo pos="2;7882" name="TODO Make possible to select another platform at build time."/>
+   <todo pos="1;7882" name="@TODO Make possible to select another platform at build time."/>
+   <todo pos="4;9546" name="TODO(SB): I think we should be able to remove this custom case (options.scale)"/>
+   <todo pos="3;11592" name="TODO(v3): remove minSize as a public property and return value from all layout boxes. It is unused"/>
+   <todo pos="1;13147" name="TODO(v3): change this to positiveOrDefault"/>
+   <todo pos="9;15066" name="TODO: Remove &quot;ordinalParse&quot; fallback in next major release."/>
+   <todo pos="9;15709" name="TODO: add sorting"/>
+   <todo pos="17;15749" name="TODO: Another silent failure?"/>
+   <todo pos="9;16554" name="TODO: Find a better way to register and load all the locales in Node"/>
+   <todo pos="13;16834" name="TODO: We need to take the current isoWeekYear, but that depends on"/>
+   <todo pos="13;17009" name="TODO: Replace the vanilla JS Date object with an indepentent day-of-week check."/>
+   <todo pos="9;17113" name="TODO: Move this to another part of the creation flow to prevent circular deps"/>
+   <todo pos="5;17408" name="TODO: Use [].sort instead?"/>
+   <todo pos="5;17839" name="TODO: remove 'name' arg after deprecation is removed"/>
+   <todo pos="9;18467" name="TODO: Remove &quot;ordinalParse&quot; fallback in next major release."/>
+   <todo pos="5;18999" name="TODO: Use this.as('ms')?"/>
+   <todo pos="2;19420" name="todo if (fill[0] === '#')"/>
+   <todo pos="1;19420" name="@todo if (fill[0] === '#')"/>
+   <todo pos="2;20629" name="todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+   <todo pos="1;20629" name="@todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\chart.js\Chart.js">
+   <todo pos="1;2991" name="TODO(v3): remove 'global' from namespace.  all default are global and"/>
+   <todo pos="2;7878" name="TODO Make possible to select another platform at build time."/>
+   <todo pos="1;7878" name="@TODO Make possible to select another platform at build time."/>
+   <todo pos="4;9542" name="TODO(SB): I think we should be able to remove this custom case (options.scale)"/>
+   <todo pos="3;11588" name="TODO(v3): remove minSize as a public property and return value from all layout boxes. It is unused"/>
+   <todo pos="1;13143" name="TODO(v3): change this to positiveOrDefault"/>
+   <todo pos="2;14816" name="todo if (fill[0] === '#')"/>
+   <todo pos="1;14816" name="@todo if (fill[0] === '#')"/>
+   <todo pos="2;16025" name="todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+   <todo pos="1;16025" name="@todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\datatables\jquery.dataTables.js">
+   <todo pos="36;3639" name="todo depreciated"/>
+   <todo pos="35;3639" name="@todo depreciated"/>
+   <todo pos="5;3678" name="todo Move options into their own plugins?"/>
+   <todo pos="4;3678" name="@todo Move options into their own plugins?"/>
+   <todo pos="4;4323" name="todo As per sort - can this be moved into an event handler?"/>
+   <todo pos="3;4323" name="@todo As per sort - can this be moved into an event handler?"/>
+   <todo pos="4;5979" name="todo Can this be moved into a 'data-ready' handler which is called when"/>
+   <todo pos="3;5979" name="@todo Can this be moved into a 'data-ready' handler which is called when"/>
+   <todo pos="27;6412" name="todo - for 1.11 this needs to be done by"/>
+   <todo pos="3;7265" name="todo - Is there need for an augment function?"/>
+   <todo pos="2;7265" name="@todo - Is there need for an augment function?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\fontawesome-free\js\all.js">
+   <todo pos="104;2185" name="TODO: do we need to handle font-weight for kit SVG pseudo-elements?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\fontawesome-free\js\fontawesome.js">
+   <todo pos="104;201" name="TODO: do we need to handle font-weight for kit SVG pseudo-elements?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\jquery\jquery.js">
+   <todo pos="8;793" name="TODO: identify versions"/>
+   <todo pos="7;807" name="TODO: identify versions"/>
+   <todo pos="48;4397" name="TODO: Drop _data, _removeData)"/>
+   <todo pos="2;4465" name="TODO: Now that all calls to _data and _removeData have been replaced"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\public\vendor\jquery\jquery.slim.js">
+   <todo pos="8;793" name="TODO: identify versions"/>
+   <todo pos="7;807" name="TODO: identify versions"/>
+   <todo pos="48;4397" name="TODO: Drop _data, _removeData)"/>
+   <todo pos="2;4465" name="TODO: Now that all calls to _data and _removeData have been replaced"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dflydev\dot-access-data\src\Data.php">
+   <todo pos="13;66" name="TODO: Is this really what we want to do"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\doctrine\dbal\src\Platforms\DB2Platform.php">
+   <todo pos="9;119" name="todo blob(n) with $column['length'];"/>
+   <todo pos="9;208" name="todo clob(n) with $column['length'];"/>
+   <todo pos="9;908" name="Todo OVER() needs ORDER BY data!"/>
+   <todo pos="2;1008" name="TODO: We have to investigate how to get DB2 up and running with savepoints."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\doctrine\dbal\src\Platforms\MariaDb1043Platform.php">
+   <todo pos="10;43" name="todo 4.0 - call getColumnTypeSQLSnippet() instead"/>
+   <todo pos="9;43" name="@todo 4.0 - call getColumnTypeSQLSnippet() instead"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\doctrine\dbal\src\Platforms\SQLServerPlatform.php">
+   <todo pos="10;313" name="todo does other code breaks because of this"/>
+   <todo pos="9;313" name="@todo does other code breaks because of this"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\doctrine\dbal\src\Schema\MySQLSchemaManager.php">
+   <todo pos="10;439" name="todo 4.0 - call getColumnTypeSQLSnippet() instead"/>
+   <todo pos="9;439" name="@todo 4.0 - call getColumnTypeSQLSnippet() instead"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\doctrine\dbal\src\Schema\SQLServerSchemaManager.php">
+   <todo pos="10;318" name="todo"/>
+   <todo pos="9;318" name="@todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\doctrine\dbal\src\Types\ArrayType.php">
+   <todo pos="10;37" name="todo 3.0 - $value === null check to save real NULL in database"/>
+   <todo pos="9;37" name="@todo 3.0 - $value === null check to save real NULL in database"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\lib\Cpdf.php">
+   <todo pos="14;5889" name="todo is it still needed"/>
+   <todo pos="13;5889" name="@todo is it still needed"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Adapter\GD.php">
+   <todo pos="10;500" name="todo"/>
+   <todo pos="9;500" name="@todo"/>
+   <todo pos="10;505" name="todo"/>
+   <todo pos="9;505" name="@todo"/>
+   <todo pos="10;510" name="todo"/>
+   <todo pos="9;510" name="@todo"/>
+   <todo pos="10;515" name="todo"/>
+   <todo pos="9;515" name="@todo"/>
+   <todo pos="10;530" name="todo"/>
+   <todo pos="9;530" name="@todo"/>
+   <todo pos="10;535" name="todo"/>
+   <todo pos="9;535" name="@todo"/>
+   <todo pos="10;540" name="todo"/>
+   <todo pos="9;540" name="@todo"/>
+   <todo pos="10;545" name="todo"/>
+   <todo pos="9;545" name="@todo"/>
+   <todo pos="10;550" name="todo"/>
+   <todo pos="9;550" name="@todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Adapter\PDFLib.php">
+   <todo pos="9;580" name="TODO: we should check the current PDF stroke color"/>
+   <todo pos="9;617" name="TODO: we should check the current PDF fill color"/>
+   <todo pos="9;699" name="TODO"/>
+   <todo pos="17;1152" name="TODO: should do something with the error message"/>
+   <todo pos="13;1214" name="TODO: PDFLib::create_action does not permit non-HTTP links for URI actions"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Css\AttributeTranslator.php">
+   <todo pos="9;90" name="TODO: translate more form element attributes"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Css\Style.php">
+   <todo pos="17;1642" name="TODO: we shouldn't need to parse this twice"/>
+   <todo pos="13;1724" name="TODO: this should be a directed dependency map"/>
+   <todo pos="9;2045" name="TODO: It probably makes sense to perform the font selection outside"/>
+   <todo pos="13;2518" name="TODO: Use typographically appropriate quotes for the current"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Css\Stylesheet.php">
+   <todo pos="25;638" name="TODO: `*:first-of-type`, `*:nth-of-type` etc."/>
+   <todo pos="25;674" name="TODO: bit of a hack attempt at matches support, currently only matches against elements"/>
+   <todo pos="29;721" name="TODO"/>
+   <todo pos="13;959" name="TODO: If we use a context node can we remove the leading dot"/>
+   <todo pos="25;1351" name="Todo:Reason is unknown"/>
+   <todo pos="17;1552" name="TODO: pass media queries as an argument to load_css_file and apply to all contained styles"/>
+   <todo pos="113;1555" name="TODO)"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Dompdf.php">
+   <todo pos="14;507" name="todo Take the quirksmode into account"/>
+   <todo pos="13;507" name="@todo Take the quirksmode into account"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\FontMetrics.php">
+   <todo pos="10;298" name="todo Make sure this cache is efficient before enabling it"/>
+   <todo pos="9;298" name="@todo Make sure this cache is efficient before enabling it"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php">
+   <todo pos="2;845" name="TODO: What version is the best : this one or the one in ListBullet ?"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\FrameDecorator\ListBullet.php">
+   <todo pos="9;108" name="TODO: This is a copy of `FrameDecorator\Text::get_margin_height()`"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\FrameReflower\Block.php">
+   <todo pos="17;98" name="TODO: This is the in-flow inline position. Use the in-flow"/>
+   <todo pos="17;341" name="TODO: This is the in-flow inline position. Use the in-flow"/>
+   <todo pos="9;416" name="TODO: Need to also take min/max height into account for absolute"/>
+   <todo pos="13;696" name="TODO: this is a WIP for handling clear/float frames that are in between inline frames"/>
+   <todo pos="17;763" name="TODO handle when floating elements don't fit"/>
+   <todo pos="9;922" name="TODO: While the containing block is not set yet on the frame, it can"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\FrameReflower\Image.php">
+   <todo pos="9;60" name="TODO: While the containing block is not set yet on the frame, it can"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\FrameReflower\Text.php">
+   <todo pos="10;184" name="todo support &lt;wbr>"/>
+   <todo pos="9;184" name="@todo support &lt;wbr>"/>
+   <todo pos="13;322" name="TODO: Would probably be better to move just below the current"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Positioner\Absolute.php">
+   <todo pos="13;34" name="TODO: Resolve dimensions, margins, and offsets similar to the"/>
+   <todo pos="29;86" name="TODO change width"/>
+   <todo pos="29;115" name="TODO change height"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\dompdf\src\Positioner\Fixed.php">
+   <todo pos="13;26" name="TODO: Resolve dimensions, margins, and offsets similar to the"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-font-lib\src\FontLib\EOT\File.php">
+   <todo pos="5;59" name="TODO Read font data ..."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-font-lib\src\FontLib\Table\Type\post.php">
+   <todo pos="9;67" name="TODO"/>
+   <todo pos="9;75" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-font-lib\src\FontLib\TrueType\File.php">
+   <todo pos="24;335" name="todo"/>
+   <todo pos="23;335" name="@todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-svg-lib\src\Svg\Surface\CPdf.php">
+   <todo pos="14;5803" name="todo is it still needed"/>
+   <todo pos="13;5803" name="@todo is it still needed"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-svg-lib\src\Svg\Surface\SurfaceCpdf.php">
+   <todo pos="9;114" name="TODO: Implement beginPath() method."/>
+   <todo pos="18;218" name="todo use cache for BMP and GIF"/>
+   <todo pos="17;218" name="@todo use cache for BMP and GIF"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-svg-lib\src\Svg\Surface\SurfacePDFLib.php">
+   <todo pos="9;112" name="TODO: Implement beginPath() method."/>
+   <todo pos="9;147" name="TODO: Implement drawImage() method."/>
+   <todo pos="9;426" name="TODO: Implement setFont() method."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-svg-lib\src\Svg\Tag\Path.php">
+   <todo pos="21;401" name="TODO: optimize this"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\dompdf\php-svg-lib\src\Svg\Tag\UseTag.php">
+   <todo pos="13;24" name="TODO: log circular reference error state"/>
+   <todo pos="13;66" name="TODO: log circular reference error state"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\fakerphp\faker\src\Faker\ORM\CakePHP\EntityPopulator.php">
+   <todo pos="9;121" name="TODO check if TreeBehavior attached to modify lft/rgt cols"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\fakerphp\faker\src\Faker\Provider\Base.php">
+   <todo pos="9;643" name="TODO: remove in v2"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\fakerphp\faker\src\Faker\Provider\kk_KZ\Address.php">
+   <todo pos="5;15" name="TODO list all country names in the world"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\filp\whoops\src\Whoops\Exception\Frame.php">
+   <todo pos="10;51" name="todo: This can be made more reliable by checking if we've entered"/>
+   <todo pos="9;51" name="@todo: This can be made more reliable by checking if we've entered"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\filp\whoops\src\Whoops\Handler\PrettyPageHandler.php">
+   <todo pos="14;186" name="todo: Make this more robust"/>
+   <todo pos="13;186" name="@todo: Make this more robust"/>
+   <todo pos="14;225" name="todo: Asset compiler"/>
+   <todo pos="13;225" name="@todo: Asset compiler"/>
+   <todo pos="10;282" name="todo: Consolidate addDataTable and addDataTableCallback"/>
+   <todo pos="9;282" name="@todo: Consolidate addDataTable and addDataTableCallback"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\filp\whoops\src\Whoops\Run.php">
+   <todo pos="14;420" name="todo Might be able to clean this up a bit better"/>
+   <todo pos="13;420" name="@todo Might be able to clean this up a bit better"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\guzzlehttp\guzzle\src\Client.php">
+   <todo pos="22;410" name="todo: Do not rely on curl"/>
+   <todo pos="21;410" name="@todo: Do not rely on curl"/>
+   <todo pos="13;435" name="TODO: Add more sink validation"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\hamcrest\hamcrest-php\hamcrest\Hamcrest\Arrays\IsArray.php">
+   <todo pos="1;10" name="TODO: Allow this to take matchers or values within the array"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\kitloong\laravel-migrations-generator\src\Migration\Generator\IndexGenerator.php">
+   <todo pos="13;47" name="TODO Laravel 10 does not support `$table->index(DB::raw(&quot;with_length(16)&quot;))`"/>
+   <todo pos="13;110" name="TODO Laravel 10 does not support `$table->index(DB::raw(&quot;with_length(16)&quot;))`"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\maennchen\zipstream-php\src\PackField.php">
+   <todo pos="2;10" name="TODO: Make class readonly when requiring PHP 8.2 exclusively"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\maennchen\zipstream-php\test\Zs\ExtendedInformationExtraFieldTest.php">
+   <todo pos="29;18" name="TODO: Document"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\masterminds\html5\src\HTML5\Parser\DOMTreeBuilder.php">
+   <todo pos="9;561" name="TODO: Need to handle case where comment appears outside of the HTML tag."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\masterminds\html5\src\HTML5\Parser\InputStream.php">
+   <todo pos="2;20" name="TODO: Move this to the scanner."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\masterminds\html5\src\HTML5\Parser\Tokenizer.php">
+   <todo pos="17;146" name="TODO is this necessary"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\masterminds\html5\src\HTML5\Parser\UTF8Utils.php">
+   <todo pos="10;105" name="todo Get iconv running in at least some environments if that is possible."/>
+   <todo pos="9;105" name="@todo Get iconv running in at least some environments if that is possible."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\masterminds\html5\src\HTML5\Serializer\OutputRules.php">
+   <todo pos="9;347" name="TODO: Currently, this always writes name=&quot;value&quot;, and does not do"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\mockery\mockery\docs\conf.py">
+   <todo pos="47;17" name="todoc) are in another directory,"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\Carbon.php">
+   <todo pos="5;24" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;507" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\CarbonImmutable.php">
+   <todo pos="5;24" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;507" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\CarbonInterface.php">
+   <todo pos="5;36" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;517" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\Factory.php">
+   <todo pos="5;20" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;239" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\FactoryImmutable.php">
+   <todo pos="5;21" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;239" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\Lang\ar_Shakl.php">
+   <todo pos="6;19" name="TODO add shakl to months"/>
+   <todo pos="5;19" name="@TODO add shakl to months"/>
+   <todo pos="6;54" name="TODO add shakl to translations below"/>
+   <todo pos="5;54" name="@TODO add shakl to translations below"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nesbot\carbon\src\Carbon\Traits\Date.php">
+   <todo pos="5;43" name="todoc generated by `composer phpdoc`>"/>
+   <todo pos="6;524" name="todoc>"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nikic\php-parser\lib\PhpParser\Comment.php">
+   <todo pos="13;197" name="TODO: Rename these to include &quot;start&quot;."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nikic\php-parser\lib\PhpParser\Internal\TokenStream.php">
+   <todo pos="17;232" name="TODO Handle non-space indentation"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nikic\php-parser\lib\PhpParser\Lexer\TokenEmulator\AttributeEmulator.php">
+   <todo pos="9;34" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\nikic\php-parser\lib\PhpParser\PrettyPrinterAbstract.php">
+   <todo pos="13;548" name="TODO Add &lt;"/>
+   <todo pos="17;779" name="TODO: Try to preserve formatting"/>
+   <todo pos="25;830" name="TODO: Preserve formatting."/>
+   <todo pos="25;940" name="TODO: Preserve formatting."/>
+   <todo pos="13;963" name="TODO: Support removing single node."/>
+   <todo pos="9;1427" name="TODO: &quot;yield&quot; where both key and value are inserted doesn't work"/>
+   <todo pos="86;1456" name="TODO"/>
+   <todo pos="47;1474" name="TODO These need to be treated more carefully"/>
+   <todo pos="9;1571" name="TODO Insertion into empty statement lists."/>
+   <todo pos="14;1619" name="TODO"/>
+   <todo pos="77;1645" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\openspout\openspout\src\Reader\XLSX\RowIterator.php">
+   <todo pos="9;212" name="TODO: This should return $this->nextRowIndexToBeProcessed"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Financial\Depreciation.php">
+   <todo pos="9;62" name="TODO Handle period value between 0 and 1 (e.g. 0.5)"/>
+   <todo pos="9;122" name="TODO Handling for fractional $period values"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Internal\ExcelArrayPseudoFunctions.php">
+   <todo pos="9;74" name="TODO How are we going to identify and handle a #SPILL! or a #CALC! error"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\LookupRef\Matrix.php">
+   <todo pos="2;70" name="TODO Provide support for area_num, currently not supported"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Calculation\Statistical\Distributions\Binomial.php">
+   <todo pos="2;138" name="TODO Add support for the cumulative flag not present for NEGBINOMDIST, but introduced for NEG"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Cell\DataType.php">
+   <todo pos="13;59" name="TODO: Sanitize Rich-Text string (max. character count is 32,767)"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Html.php">
+   <todo pos="13;294" name="TODO"/>
+   <todo pos="17;679" name="TODO"/>
+   <todo pos="2;887" name="TODO :"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Ods.php">
+   <todo pos="31;364" name="TODO :: Figure this out. This is only a partial implementation I guess."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls.php">
+   <todo pos="13;3148" name="todo: what if string is very long"/>
+   <todo pos="21;3676" name="todo: implement"/>
+   <todo pos="21;3753" name="TODO: Investigate structure for .xls SHEETLAYOUT record as saved by MS Office Excel 2007"/>
+   <todo pos="21;4672" name="todo: check if we have identified the whole set of special characters"/>
+   <todo pos="21;4681" name="TODO: external sheet support"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls\Biff8.php">
+   <todo pos="9;237" name="todo: if cell range is just a single cell, should this funciton"/>
+   <todo pos="9;293" name="TODO: if cell range is just a single cell, should this funciton"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xls\LoadSpreadsheet.php">
+   <todo pos="29;486" name="TODO: Why is there no BSE Index"/>
+   <todo pos="17;662" name="TODO Provide support for named values"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx.php">
+   <todo pos="29;1358" name="TODO: Autoshapes from twoCellAnchors!"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Reader\Xlsx\Chart.php">
+   <todo pos="17;1508" name="TODO parse title elements"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\ReferenceHelper.php">
+   <todo pos="2;969" name="TODO Can we work out a method to identify Named Ranges that cease to be valid, so tha"/>
+   <todo pos="2;988" name="TODO Can we work out a method to identify Named Ranges that cease to be valid, so tha"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Html.php">
+   <todo pos="13;1839" name="TODO: Same for columns"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Ods\Cell\Style.php">
+   <todo pos="19;64" name="TODO :: To be implemented"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Escher.php">
+   <todo pos="53;166" name="todo"/>
+   <todo pos="31;172" name="todo"/>
+   <todo pos="62;206" name="todo"/>
+   <todo pos="38;209" name="todo"/>
+   <todo pos="62;233" name="todo"/>
+   <todo pos="38;236" name="todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Parser.php">
+   <todo pos="9;559" name="TODO: use real error codes"/>
+   <todo pos="9;635" name="TODO: possible class value 0,1,2 check Formula.pm"/>
+   <todo pos="13;640" name="TODO: use real error codes"/>
+   <todo pos="13;655" name="TODO: use real error codes"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xls\Workbook.php">
+   <todo pos="10;425" name="TODO: store external SUPBOOK records and XCT and CRN records"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx\Chart.php">
+   <todo pos="25;973" name="TODO output title elements"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Element\AbstractContainer.php">
+   <todo pos="14;105" name="todo Remove the `$count` parameter in 1.0.0 to make this element similiar to other elements"/>
+   <todo pos="13;105" name="@todo Remove the `$count` parameter in 1.0.0 to make this element similiar to other elements"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Reader\MsDoc.php">
+   <todo pos="14;363" name="todo : fibRgCswNew"/>
+   <todo pos="13;363" name="@todo : fibRgCswNew"/>
+   <todo pos="14;1292" name="todo readPrl for paragraphs"/>
+   <todo pos="13;1292" name="@todo readPrl for paragraphs"/>
+   <todo pos="39;1956" name="todo Character : 0x'.dechex($oSprm->isPmd));"/>
+   <todo pos="38;1956" name="@todo Character : 0x'.dechex($oSprm->isPmd));"/>
+   <todo pos="39;2025" name="todo Section : 0x'.dechex($oSprm->isPmd));"/>
+   <todo pos="38;2025" name="@todo Section : 0x'.dechex($oSprm->isPmd));"/>
+   <todo pos="18;2039" name="todo Read Hyperlink structure"/>
+   <todo pos="17;2039" name="@todo Read Hyperlink structure"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Reader\Word2007\AbstractPart.php">
+   <todo pos="18;608" name="todo Do something with table columns"/>
+   <todo pos="17;608" name="@todo Do something with table columns"/>
+   <todo pos="26;623" name="todo Do something with row style"/>
+   <todo pos="25;623" name="@todo Do something with row style"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Reader\Word2007\Document.php">
+   <todo pos="10;123" name="todo Cleanup this part"/>
+   <todo pos="9;123" name="@todo Cleanup this part"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Shared\Html.php">
+   <todo pos="2;505" name="TODO if too slow, add caching of parent nodes, !! everything is static here so watch out for"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Style\Image.php">
+   <todo pos="10;66" name="todo Remove on 1.0.0"/>
+   <todo pos="9;66" name="@todo Remove on 1.0.0"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Writer\ODText\Element\Text.php">
+   <todo pos="10;42" name="todo Commented for TextRun. Should really checkout this value"/>
+   <todo pos="9;42" name="@todo Commented for TextRun. Should really checkout this value"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Writer\ODText\Part\Meta.php">
+   <todo pos="10;73" name="todo Check type. Currently all assumed as string"/>
+   <todo pos="9;73" name="@todo Check type. Currently all assumed as string"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Writer\ODText\Style\Font.php">
+   <todo pos="10;73" name="todo Various mode of underline"/>
+   <todo pos="9;73" name="@todo Various mode of underline"/>
+   <todo pos="10;101" name="todo Foreground-Color"/>
+   <todo pos="9;101" name="@todo Foreground-Color"/>
+   <todo pos="10;103" name="todo Background color"/>
+   <todo pos="9;103" name="@todo Background color"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Writer\RTF\Element\AbstractElement.php">
+   <todo pos="46;162" name="todo: replace with `return $text;` later."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Writer\RTF\Style\Border.php">
+   <todo pos="57;94" name="todo Get other type of border"/>
+   <todo pos="56;94" name="@todo Get other type of border"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpoffice\phpword\src\PhpWord\Writer\Word2007\Element\Field.php">
+   <todo pos="4;123" name="TODO A lot of code duplication with general method, should maybe be refactored"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpunit\php-code-coverage\src\StaticAnalysis\CodeUnitFindingVisitor.php">
+   <todo pos="15;179" name="todo Handle default values"/>
+   <todo pos="14;179" name="@todo Handle default values"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\phpunit\phpunit\src\Framework\TestSuite.php">
+   <todo pos="18;670" name="todo"/>
+   <todo pos="17;670" name="@todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\CodeCleaner\CalledClassPass.php">
+   <todo pos="14;55" name="todo switch this to actually validate args when we get context-aware code cleaner passes."/>
+   <todo pos="13;55" name="@todo switch this to actually validate args when we get context-aware code cleaner passes."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\CodeCleaner\PassableByReferencePass.php">
+   <todo pos="10;41" name="todo support MethodCall and StaticCall as well."/>
+   <todo pos="9;41" name="@todo support MethodCall and StaticCall as well."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\CodeCleaner\RequirePass.php">
+   <todo pos="14;82" name="todo Shell::handleError would be better here, because we could"/>
+   <todo pos="13;82" name="@todo Shell::handleError would be better here, because we could"/>
+   <todo pos="14;88" name="todo trigger an error as fallback"/>
+   <todo pos="13;88" name="@todo trigger an error as fallback"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\CodeCleaner\UseStatementPass.php">
+   <todo pos="10;104" name="todo Remove UseUse once we drop support for PHP-Parser 4.x"/>
+   <todo pos="9;104" name="@todo Remove UseUse once we drop support for PHP-Parser 4.x"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\CodeCleaner\ValidFunctionNamePass.php">
+   <todo pos="14;49" name="todo add an &quot;else&quot; here which adds a runtime check for instances where we can't tell"/>
+   <todo pos="13;49" name="@todo add an &quot;else&quot; here which adds a runtime check for instances where we can't tell"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Command\DocCommand.php">
+   <todo pos="18;147" name="todo this is going to collide with ReflectionMethod ids"/>
+   <todo pos="17;147" name="@todo this is going to collide with ReflectionMethod ids"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Command\ListCommand.php">
+   <todo pos="10;129" name="todo something cleaner than this :-/"/>
+   <todo pos="9;129" name="@todo something cleaner than this :-/"/>
+   <todo pos="14;261" name="todo ensure that 'functions', 'classes', 'interfaces', 'traits' only accept namespace target"/>
+   <todo pos="13;261" name="@todo ensure that 'functions', 'classes', 'interfaces', 'traits' only accept namespace target"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Command\ListCommand\ClassConstantEnumerator.php">
+   <todo pos="14;32" name="todo handle ReflectionExtension as well"/>
+   <todo pos="13;32" name="@todo handle ReflectionExtension as well"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Configuration.php">
+   <todo pos="10;214" name="todo support raw output with interactive input"/>
+   <todo pos="9;214" name="@todo support raw output with interactive input"/>
+   <todo pos="10;872" name="todo mebbe turn this on by default some day"/>
+   <todo pos="9;872" name="@todo mebbe turn this on by default some day"/>
+   <todo pos="10;1007" name="todo detect `chsh` != 65001 on Windows and return false"/>
+   <todo pos="9;1007" name="@todo detect `chsh` != 65001 on Windows and return false"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Formatter\CodeFormatter.php">
+   <todo pos="10;71" name="todo something better here"/>
+   <todo pos="9;71" name="@todo something better here"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Readline\Hoa\File.php">
+   <todo pos="10;187" name="todo manage $callable as a filter"/>
+   <todo pos="9;187" name="@todo manage $callable as a filter"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\Shell.php">
+   <todo pos="14;352" name="todo should it be possible to have raw output in an interactive run"/>
+   <todo pos="13;352" name="@todo should it be possible to have raw output in an interactive run"/>
+   <todo pos="10;440" name="todo overrides via environment variables (or should these happen in config"/>
+   <todo pos="9;440" name="@todo overrides via environment variables (or should these happen in config"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\psy\psysh\src\functions.php">
+   <todo pos="10;101" name="todo come up with a better way of doing this which doesn't involve injecting input :-P"/>
+   <todo pos="9;101" name="@todo come up with a better way of doing this which doesn't involve injecting input :-P"/>
+   <todo pos="10;235" name="todo show styles (but only if they're different than default"/>
+   <todo pos="9;235" name="@todo show styles (but only if they're different than default"/>
+   <todo pos="10;332" name="todo Show Presenter / custom casters."/>
+   <todo pos="9;332" name="@todo Show Presenter / custom casters."/>
+   <todo pos="18;469" name="todo this triggers the &quot;exited unexpectedly&quot; logic in the"/>
+   <todo pos="17;469" name="@todo this triggers the &quot;exited unexpectedly&quot; logic in the"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\rats\zkteco\src\Lib\Helper\Util.php">
+   <todo pos="7;261" name="TODO: Some device can return 'Connection unauthorized' then should check also"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\rats\zkteco\src\Lib\ZKTeco.php">
+   <todo pos="2;292" name="TODO: Can get data, but don't know how to parse the data. Need more documentation about it..."/>
+   <todo pos="2;304" name="TODO: Still can not set fingerprint. Need more documentation about it..."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\reliese\laravel\src\Coders\Model\Factory.php">
+   <todo pos="9;213" name="TODO: SchemaManager should do this"/>
+   <todo pos="9;218" name="TODO: ModelManager should do this"/>
+   <todo pos="13;366" name="TODO: Handle collisions, perhaps rename the relation."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\reliese\laravel\src\Coders\Model\Model.php">
+   <todo pos="9;253" name="TODO: Check type cast is OK"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\reliese\laravel\src\Coders\Model\Relations\BelongsTo.php">
+   <todo pos="39;100" name="todo: Improve relationship resolution."/>
+   <todo pos="38;100" name="@todo: Improve relationship resolution."/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\reliese\laravel\src\Meta\Postgres\Column.php">
+   <todo pos="49;91" name="todo"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\sabberworm\php-css-parser\src\Property\Selector.php">
+   <todo pos="16;134" name="todo should exclude \# as well as &quot;#&quot;"/>
+   <todo pos="15;134" name="@todo should exclude \# as well as &quot;#&quot;"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\smalot\pdfparser\src\Smalot\PdfParser\Font.php">
+   <todo pos="45;585" name="todo: ElementString class must by used"/>
+   <todo pos="9;669" name="todo: Why exactly `Windows-1252` used"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\smalot\pdfparser\src\Smalot\PdfParser\PDFObject.php">
+   <todo pos="30;781" name="todo $xobject could be a ElementXRef object, which would then throw an error"/>
+   <todo pos="29;781" name="@todo $xobject could be a ElementXRef object, which would then throw an error"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\smalot\pdfparser\src\Smalot\PdfParser\RawData\RawDataParser.php">
+   <todo pos="17;335" name="TODO: Handle the case when unpack returns false"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\spatie\ignition\src\ErrorPage\ErrorPageViewModel.php">
+   <todo pos="9;116" name="TODO: Should be based on Ignition config"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\spatie\laravel-ignition\src\Support\Composer\ComposerClassMap.php">
+   <todo pos="9;52" name="TODO: This is incorrect. Doesnt list all fqcns. Need to parse namespace"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\symfony\css-selector\XPath\Extension\FunctionExtension.php">
+   <todo pos="9;93" name="todo: handle an+b, odd, even"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\symfony\css-selector\XPath\Extension\HtmlExtension.php">
+   <todo pos="9;96" name="todo: in the second half, add &quot;and is not a descendant of that fieldset element's first legend elem"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\symfony\http-kernel\HttpCache\Store.php">
+   <todo pos="9;168" name="TODO the metaStore referenced an entity that doesn't exist in"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\symfony\mime\Header\ParameterizedHeader.php">
+   <todo pos="13;117" name="TODO: text, or something else"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\symfony\translation\Loader\PoFileLoader.php">
+   <todo pos="17;87" name="TODO: this fails when comments or contexts are added"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\symfony\yaml\Parser.php">
+   <todo pos="18;199" name="todo in 7.0 remove legacy &quot;("/>
+   <todo pos="17;199" name="@todo in 7.0 remove legacy &quot;("/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\tecnickcom\tcpdf\include\tcpdf_static.php">
+   <todo pos="10;442" name="TODO"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\tecnickcom\tcpdf\tcpdf.php">
+   <todo pos="41;9292" name="TODO: create a SMask"/>
+   <todo pos="40;9292" name="@TODO: create a SMask"/>
+   <todo pos="4;13689" name="TODO: implement this feature"/>
+   <todo pos="3;13689" name="@TODO: implement this feature"/>
+   <todo pos="7;24531" name="TODO: unsupported feature"/>
+   <todo pos="6;24531" name="@TODO: unsupported feature"/>
+  </todofile>
+  <todofile name="C:\xampp\htdocs\sistema_escalafon\vendor\yajra\laravel-datatables-html\src\Html\Editor\Fields\File.php">
+   <todo pos="9;140" name="TODO: Use Laravel filesystem instead of hard coded storage path"/>
+  </todofile>
+ </todoblock>
+ <dbgurls/>
+ <lasttime value="1744148548"/>
+</project>

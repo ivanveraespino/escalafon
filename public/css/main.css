@@ -1,0 +1,100 @@
+/* Ejemplo de personalización */
+.nav-item.active .nav-link {
+    color: white; /* Color de texto */
+    border-radius: 15px; /* Bordes redondeados, si lo deseas */
+
+  }
+  
+  .sidebar-brand.active {
+    color: white; /* Texto blanco */
+    border-radius: 10px; /* Bordes redondeados, si lo deseas */
+}
+
+.sidebar-brand.active .sidebar-brand-icon {
+    color: greenyellow; /* Cambia el color del icono */
+}
+/* Barra lateral fija */
+
+
+.sidebar {
+  position: fixed;  /* Fija la barra lateral */
+
+  width: 100px;     /* Ancho de la barra lateral */
+  z-index: 1000;    /* Asegura que la barra lateral esté por encima del contenido */
+}
+
+
+#content-wrapper {
+    width: calc(100% - 250px); /* Hace que el contenido ocupe el 100% de la ventana, menos el ancho de la barra lateral */
+    height: 100vh; /* Asegura que el contenido tenga la misma altura que la ventana */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido es más grande que la ventana */
+    background-color: #f4fff7;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    width: 100px;     /* Ancho de la barra lateral */
+  }
+
+
+}
+
+.pestaña{
+    
+  height: 50px;
+  max-width: 450px;
+  background-color: #1cc88a;
+  border-radius: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  
+}
+
+.box{
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: #BBBBBB;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.form-floating{
+  flex: 1;
+  min-width: 200px;
+}
+
+#formContainer {
+  max-height: 0; /* Inicialmente colapsado */
+  opacity: 0; /* Inicialmente invisible */
+  overflow: hidden; /* Evita que el contenido se desborde mientras está colapsado */
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+#formContainer.show {
+  max-height: 1000px; /* Ajusta este valor según el tamaño máximo del contenido */
+  opacity: 1; /* Se hace completamente visible */
+}
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.d-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.d-col{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
