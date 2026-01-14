@@ -338,6 +338,7 @@ class PersonalController extends Controller
         $referencia = $request->input('referencia');
         $interior = $request->input('interior');
         $foto = $request->input('foto-perfil');
+        $urldj = $request->input('link-dj');
         $personal = new Personal();
         $personal->id_identificacion = $tipodoc;
         $personal->nro_documento_id = $nroidentificacion;
@@ -363,6 +364,7 @@ class PersonalController extends Controller
         $personal->centroessalud = $PCentroEssalud;
         $personal->estado = 1;
         $personal->verificador=0;
+        $personal->urldj=$urldj;
         
         $personal->save();
         $domicilio = new Domicilio();
@@ -907,6 +909,7 @@ class PersonalController extends Controller
         $referencia = $request->input('referencia');
         $interior = $request->input('interior');
         $urlgeneral = $request->input('url-general');
+        $urldj = $request->input('link-dj');
         $personal = Personal::find($id);
         $personal->id_identificacion = $tipodoc;
         $personal->nro_documento_id = $nroidentificacion;
@@ -933,6 +936,7 @@ class PersonalController extends Controller
         $personal->urlgeneral = $urlgeneral;
         $personal->estado = 1;
         $personal->verificador=$verficar;
+        $personal->urldj=$urldj;
         $personal->save();
         $domicilio = Domicilio::where('personal_id', $id)->first();
         if (!$domicilio) {

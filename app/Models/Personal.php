@@ -45,6 +45,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property string|null $id_regimenp
  * @property string|null $discapacidad
  * @property string|null $ffaa
+ * @property string|null $urldj
  *
  * @property Collection|Archivo[] $archivos
  * @property Collection|Compensacione[] $compensaciones
@@ -112,7 +113,8 @@ class Personal extends Model implements Auditable
         'estado',
 		'foto',
 		'urlgeneral',
-		'verificador'
+		'verificador',
+		'urldj'
 	];
 
 	public function archivos()

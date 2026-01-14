@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>MPLC009 - Escalafón</title>
-    
+
     <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -22,11 +22,13 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('/css/bootstrap5.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    
+
     <!-- Select 2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
     <!-- Select 2 -->
 
 
@@ -38,13 +40,15 @@
     <link rel="stylesheet" href="{{ asset('css/modal_dp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/general.css') }}">
     <link rel="stylesheet" href="{{ asset('css/chosen.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">    
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Chosen css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css"
+        rel="stylesheet">
 </head>
+
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper" class="bg-teal-100">
@@ -53,13 +57,13 @@
         <aside id="sidebar" class="expand">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                <i class="lni lni-menu-hamburger-1"></i>
+                    <i class="lni lni-menu-hamburger-1"></i>
                 </button>
                 <div class="sidebar-logo">
                     <a href="#">ESCALAFON</a>
                 </div>
             </div>
-            
+
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link menu" onclick="loadContent('{{route('profile')}}')">
@@ -75,13 +79,14 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link menu" onclick="loadContent('{{ route('employees.index') }}','/home')">
+                    <a href="#" class="sidebar-link menu"
+                        onclick="loadContent('{{ route('employees.index') }}','/home')">
                         <i class="lni lni-user-multiple-4"></i>
                         <span>PERSONAL</span>
                     </a>
                 </li>
-                
-                 <li class="sidebar-item" style="display: none;">
+
+                <li class="sidebar-item" style="display: none;">
                     <a href="#" class="sidebar-link collapsed has-dropdown menu" data-bs-toggle="collapse"
                         data-bs-target="#legajo" aria-expanded="false" aria-controls="auth">
                         <i class="lni lni-book-1"></i>
@@ -90,62 +95,63 @@
                     <ul id="legajo" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.familiares') }}')">
-                            Familiares
+                                Familiares
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.vinculos') }}')">
-                            Vinculo Laboral
+                                Vinculo Laboral
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.formacion') }}')">
-                            Estudios
+                                Estudios
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.estudiosCom') }}')">
-                            Estudios Complementarios
+                                Estudios Complementarios
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="loadContent('{{ route('legajo.colegiatura') }}')">
-                            Colegiatura
+                                Colegiatura
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.idiomas') }}')">
-                            Idiomas
+                                Idiomas
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.experiencia') }}')">
-                            Experiencia Laboral
+                                Experiencia Laboral
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.movimientos') }}')">
-                            Rotaciones
+                                Rotaciones
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.vacaciones') }}')">
-                            Vacaciones
+                                Vacaciones
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.licencias') }}')">
-                            Licencias
+                                Licencias
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="loadContent('{{ route('legajo.permisos') }}')">
-                            Permisos
+                                Permisos
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.compensaciones') }}')">
-                            Compensaciones
+                            <a href="#" class="sidebar-link"
+                                onclick="loadContent('{{ route('legajo.compensaciones') }}')">
+                                Compensaciones
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -154,20 +160,21 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.reconocimientos') }}')">
-                            Reconocimientos
+                            <a href="#" class="sidebar-link"
+                                onclick="loadContent('{{ route('legajo.reconocimientos') }}')">
+                                Reconocimientos
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link" onclick="loadContent('{{ route('legajo.sanciones') }}')">
-                            Sanciones
+                                Sanciones
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="sidebar-item" style="display: none;" >
+                <li class="sidebar-item" style="display: none;">
                     <a onclick="modalIM()" class="sidebar-link menu">
                         <i class="lni lni-user-4"></i>
                         <span>INFORMES</span>
@@ -183,7 +190,7 @@
 
                 <li class="sidebar-item">
                     <a href="{{route('general')}}" class="sidebar-link menu">
-                    <i class="lni lni-file-multiple"></i>
+                        <i class="lni lni-file-multiple"></i>
                         <span>ARCHIVOS</span>
                     </a>
                 </li>
@@ -203,12 +210,16 @@
                     </a>
                     <ul id="vacaciones" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="{{route('cronogramarIndividual')}}" class="sidebar-link">Individual</a>
+                            <a href="{{route('cronogramarIndividual')}}" class="sidebar-link">Cronograma Individual</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('cronogramarMasivo') }}" class="sidebar-link">Masivo</a>
+                            <a href="{{ route('cronogramarMasivo') }}" class="sidebar-link">Cronograma Masivo</a>
                         </li>
-                        
+                        <li class="sidebar-item">
+                            <a href="{{ route('generarVacacionesMasivo', ['periodo' => date('Y'), 'mes' => 'ENERO']) }}"
+                                class="sidebar-link">Vacaciones en lote</a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -258,10 +269,12 @@
                         </li>
                     </ul>
                 </li>
-              
+
             </ul>
             <div class="sidebar-footer">
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-link">
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                    class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -281,21 +294,22 @@
                 </div>
             </div>
             <!-- Main Content -->
-            <div id="content" class="p-3 container-fluid" >
+            <div id="content" class="p-3 container-fluid">
                 @include('layouts.modal_seleccionar_campos')
                 @include('layouts.modal_domicilio')
 
 
-                    @yield('content')
+                @yield('content')
 
             </div>
             <!-- End of Main Content -->
 
-        
+
             <footer class="sticky-footer ">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Oficina de Tecnologías de la Información y Comunicaciones - <strong>Municipalidad Provincial de La Convención<strong></span>
+                        <span>Oficina de Tecnologías de la Información y Comunicaciones - <strong>Municipalidad
+                                Provincial de La Convención<strong></span>
                     </div>
                 </div>
             </footer>
@@ -334,7 +348,9 @@
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <!-- <script src="{{ asset('bootstrap5/js/bootstrap.bundle.min.js') }}"></script>-->
 
@@ -366,9 +382,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.13/combined/js/gijgo.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-   <!--  <script src="{{ mix('js/app.js') }}"></script>-->
+    <!--  <script src="{{ mix('js/app.js') }}"></script>-->
 
     <!-- MANEJAR ARCHIVOS MAYUSCULAS Y FOLIOS-->
     <script src="{{asset('js/files_handler.js')}}"></script>
@@ -381,9 +397,8 @@
     <script src="{{asset('js/funciones_vlp.js')}}"></script>
 
     <!-- CRONOGRAMA -->
-    <script src="{{asset('js/cronograma.js')}}"></script>
-
     
+
     <script>
         function loadContent(route, urlPath, event) {
             const loader = document.getElementById("loader");
@@ -395,19 +410,19 @@
             if (urlPath) {
                 history.pushState(null, '', urlPath);
             }
-            if (event) event.preventDefault(); 
+            if (event) event.preventDefault();
             $.ajax({
                 url: route,
                 method: 'GET',
-                success: function(data) {
+                success: function (data) {
                     $('#content').html(data);
                     loader.style.display = "none";
                     dynamicContent.style.opacity = "1";
                     initializeToggle();
                 },
-                error: function(error) {
+                error: function (error) {
                     alert('Hubo un error al cargar los datos');
-                    loader.style.display = "none"; 
+                    loader.style.display = "none";
                     dynamicContent.style.opacity = "1";
                 }
             });
@@ -415,26 +430,26 @@
 
         //ARREGLAR
         function initializeToggle() {
-        const toggleButton = document.getElementById("toggleFormButton");
-        const formContainer = document.getElementById("formContainer");
+            const toggleButton = document.getElementById("toggleFormButton");
+            const formContainer = document.getElementById("formContainer");
 
-        if (toggleButton && formContainer) {
-            toggleButton.addEventListener("click", function () {
-                console.log("Botón toggle clickeado");
-                if (formContainer.classList.contains("show")) {
-                    formContainer.classList.remove("show");
-                    setTimeout(() => {
-                        formContainer.style.display = "none";
-                    }, 300);
-                } else {
-                    formContainer.style.display = "block";
-                    setTimeout(() => {
-                        formContainer.classList.add("show");
-                    }, 8);
-                }
-            });
+            if (toggleButton && formContainer) {
+                toggleButton.addEventListener("click", function () {
+                    console.log("Botón toggle clickeado");
+                    if (formContainer.classList.contains("show")) {
+                        formContainer.classList.remove("show");
+                        setTimeout(() => {
+                            formContainer.style.display = "none";
+                        }, 300);
+                    } else {
+                        formContainer.style.display = "block";
+                        setTimeout(() => {
+                            formContainer.classList.add("show");
+                        }, 8);
+                    }
+                });
+            }
         }
-    }
     </script>
     <!-- FUNCIONES TRANSICION LEGAJOS-->
     <script src="{{asset('js/funciones_modal_legajo.js')}}"></script>
@@ -459,6 +474,8 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/es.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+    
+
     <!-- App scripts -->
     @stack('scripts')
 
@@ -466,4 +483,3 @@
 </body>
 
 </html>
-

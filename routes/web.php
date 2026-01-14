@@ -301,14 +301,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/personal/cesantes', [HomeController::class, 'getCesantes']);
     Route::get('fotocheck-masivo', [InformeController::class, 'fotocheckMasivo'])->name('fotocheckMasivo');
 
-    Route::get('cronogramar-masivo', [CronogramaController::class, 'cronogramarMasivo'])->name('cronogramarMasivo');
+    Route::get('cronogramar-masivo/{periodo?}', [CronogramaController::class, 'cronogramarMasivo'])->name('cronogramarMasivo');
     Route::get('cronogramar-individual', [CronogramaController::class, 'cronogramarIndividual'])->name('cronogramarIndividual');
     
     Route::get('guardar-cronograma-masivo', [CronogramaController::class, 'guardarCronogramaMasivo'])->name('guardarCronogramaMasivo');
+    Route::get('generar-vacaciones-masivo/{periodo?}/{mes?}', [CronogramaController::class, 'generarVacacionesMasivo'])->name('generarVacacionesMasivo')->defaults('periodo', date('Y'))->defaults('mes', date('ENERO'));
 
     Route::get('/consultar-individuo/{id}', [CronogramaController::class, 'consultarIndividuo']);
     Route::POST('/guardar-individual', [CronogramaController::class, 'guardarIndividual']);
-
+    Route::get('/reporte-cronograma/{nombredoc}/{nrodoc}', [ReporteController::class, 'generarCronograma'])->name('generarCronograma');
 
 });
 

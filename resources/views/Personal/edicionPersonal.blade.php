@@ -289,6 +289,17 @@ $vencido=false;
                             </div>
                         </div>
                         @include('Personal.formEdicionDomicilio')
+                        <div class="form-floating">
+                            <div class="text-center">
+                                <input type="file" name="archivo-dj" id="archivo-dj"  accept=".pdf">
+                                 <div id="mensaje-dj">
+                                    @if ($dp->urldj)
+                                    <a href="../repositories/{{ $dp->urldj }}" target="_blank" class="text-success"><i class="fa fa-eye" ></i>Ver</a>
+                                    @endif
+                                 </div>
+                                <input type="hidden" name="link-dj" id="link-dj" value="{{ $dp->urldj ?? '' }}">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -789,6 +800,33 @@ $vencido=false;
                 console.error(error);
             });
 
+
+    });
+    //carga url dj
+    document.getElementById("archivo-dj").addEventListener("change", function() {
+        let archivo = this.files[0]; // Capturar el archivo seleccionado
+
+        if (!archivo) {
+            document.getElementById("mensaje-dj").innerHTML = "⚠ No se ha seleccionado ningún archivo.";
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append("archivo", archivo);
+
+        fetch("/subir-archivo", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("mensaje-dj").innerHTML = data.mensaje + ' <a href="../repositories/'+ data.name +'" target="_blank" class="text-success"><i class="fa fa-eye" ></i>Ver</a>';
+                document.getElementById("link-dj").value = data.name;
+            })
+            .catch(error => console.error("Error al subir el archivo:", error));
 
     });
     ///CARGA  FOTO DE PERFIL

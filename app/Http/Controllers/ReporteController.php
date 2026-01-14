@@ -23,6 +23,7 @@ use App\Models\Tipodoc;
 use App\Models\Idiomas;
 use Carbon\Carbon;
 use DB;
+use PDF;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -1135,7 +1136,47 @@ private function getNombrePersonal($personal_id)
         return ['resultados' => $resultados, 'encabezados' => $encabezadosPersonalizados];
     }
 
-    
+    public function generarCronograma($nombredoc, $nrodoc)
+    {
+        // Aquí puedes buscar datos relacionados con el documento
+        
+        
+        $registros = DB::table('cronograma_vac as c')
+            ->select(
+                'p.id_identificacion',
+                'p.nro_documento_id',
+                'p.Apaterno',
+                'p.Amaterno',
+                'p.Nombres',
+                'c.mes',
+                'c.dias'
+            )
+            ->join('vinculos as v', 'c.idvinculo', '=', 'v.id')
+            ->join('personal as p', 'p.id_personal', '=', 'v.personal_id')
+            ->where('c.nrodoc', $nrodoc)
+            ->where('c.nombredoc', $nombredoc)
+            ->get();
+        $encabezado = DB::table('cronograma_vac')
+            ->select('periodo', 'observaciones')
+            ->where('nrodoc', $nrodoc)
+            ->where('nombredoc', $nombredoc)
+            ->distinct()
+            ->get();
+
+
+
+        $datos = [
+            'nombredoc' => $nombredoc,
+            'nrodoc' => $nrodoc,
+            'registros'=>$registros,
+            'encabezado'=>$encabezado
+        ];
+        // Generar PDF con una vista Blade
+        $pdf = PDF::loadView('reportes.reporteCronograma', $datos);
+
+        // Descargar o mostrar en navegador
+        return $pdf->stream("reporte_{$nombredoc}_{$nrodoc}.pdf");
+    }
 }
 
 

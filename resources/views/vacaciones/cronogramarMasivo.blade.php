@@ -7,7 +7,7 @@
     <div class="row p-2 ">
         <div class="col-2">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="periodo" name="periodo" value="{{now()->year+1}}" readonly>
+                <input type="text" class="form-control" id="periodo" name="periodo" value="{{ $periodo }}" >
                 <label for="periodo">Periodo</label>
             </div>
         </div>
@@ -33,8 +33,14 @@
         </div>
         <div class="col-2">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="tipo-doc-vac" name="tipo-doc-vac" required>
+                <input type="text" class="form-control" id="tipo-doc-vac" name="tipo-doc-vac" list="datalistOptions" required>
                 <label for="tipo-doc-vac">Tipo Documento</label>
+
+                <datalist id="datalistOptions">
+                    @foreach($tiposdoc as $docs)
+                    <option value="{{$docs->nombre}}">
+                        @endforeach
+                </datalist>
             </div>
         </div>
         <div class="col-2">
@@ -54,6 +60,8 @@
             <input type="hidden" name="doc-cron" id="doc-cron">
             <div id="mensaje-cron"></div>
         </div>
+
+        
     </div>
     <div class="row">
 
@@ -66,6 +74,8 @@
                         <th class="p-1">Nombre</th>
                         <th class="p-1">Cargo</th>
                         <th class="p-1">Régimen</th>
+                        <th class="p-1" style="display:none;">Historial</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -75,6 +85,7 @@
                         <td class="p-1">{{ \Illuminate\Support\Str::limit($per->Apaterno.' '.$per->Amaterno.' '.$per->Nombres, 28) }}</td>
                         <td class="p-1">{{ \Illuminate\Support\Str::limit($per->cargo, 10) }}</td>
                         <td class="p-1">{{$per->regimen}}</td>
+                        <td class="p-1" style="display:none;">{{$per->mes ?? ''}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -103,10 +114,61 @@
         </div>
     </div>
 
+ 
+
+    <div class="card mt-5 mb-3" >
+        <div class="card-header ">
+            <strong>Historial de Cronogramados del periodo {{ $periodo }}</strong>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach ($documentos as $doc )
+            <li class="list-group-item d-flex justify-content-between ">
+                {{ $doc->nombredoc }} {{ $doc->nrodoc }}
+                <div class="tex-right">
+                    <a class="badge text-bg-secondary rounded-pill" href="#">Editar Enacabezado</a>
+                    <a class="badge text-bg-success rounded-pill" target="_blank"
+                        href="{{ route('generarCronograma', ['nombredoc' => $doc->nombredoc, 'nrodoc' => $doc->nrodoc]) }}">
+                        Ver reporte
+                    </a>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+   
 </div>
 
+<script>
+    document.getElementById("subidor-cron").addEventListener("change", function() {
+        let archivo = this.files[0]; // Capturar el archivo seleccionado
+
+        if (!archivo) {
+            document.getElementById("mensaje-cron").innerHTML = "⚠ No se ha seleccionado ningún archivo.";
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append("archivo", archivo);
+
+        fetch("/subir-archivo", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                //document.getElementById("mensaje").innerHTML = data.mensaje;
+                document.getElementById("mensaje-cron").innerHTML = data.mensaje + ' <a href="../repositories/'+ data.name +'" target="_blank" class="text-success"><i class="fa fa-eye" ></i>Ver</a>';
+                document.getElementById("doc-cron").value = data.name;
+            })
+            .catch(error => console.error("Error al subir el archivo:", error));
+    });
+</script>
 
 @stop
 @push('scripts')
 <script src="{{asset('js/cronograma.js')}}"></script>
+
 @endpush

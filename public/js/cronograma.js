@@ -5,6 +5,14 @@ tooltipTriggerList.forEach(function (tooltipTriggerEl) {
 });
 
 
+document.getElementById('periodo').addEventListener('change', function() {
+    let periodo = this.value;
+    if(periodo) {
+        // Redirige a la ruta con el periodo seleccionado
+        window.location.href = "/cronogramar-masivo/" + periodo;
+    }
+});
+
 
 $(document).ready(function () {
     $('.select2').select2({
@@ -35,12 +43,14 @@ $(document).ready(function () {
                 let nombre = $(this).find('td').eq(1).text();
                 let cargo = $(this).find('td').eq(2).text();
                 let regimen = $(this).find('td').eq(3).text();
+                let mes = $(this).find('td').eq(4).text();
 
                 tablaDestino.row.add([
                     `<input type="checkbox" id="dest-${id}" value="${id}" class="checkDestino">`,
                     nombre,
                     cargo,
-                    regimen
+                    regimen,
+                    mes
                 ]).draw();
 
                 tablaOrigen.row(this).remove().draw();
@@ -57,12 +67,14 @@ $(document).ready(function () {
                 let nombre = $(this).find('td').eq(1).text();
                 let cargo = $(this).find('td').eq(2).text();
                 let regimen = $(this).find('td').eq(3).text();
+                let mes = $(this).find('td').eq(4).text();
 
                 tablaOrigen.row.add([
                     `<input type="checkbox" id="or-${id}" value="${id}" class="checkOrigen">`,
                     nombre,
                     cargo,
-                    regimen
+                    regimen,
+                    mes
                 ]).draw();
 
                 tablaDestino.row(this).remove().draw();

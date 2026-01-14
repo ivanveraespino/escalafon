@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tipodoc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\CronogramaVacaciones;
@@ -45,7 +46,7 @@ class CronogramaController extends Controller
         $data = $request->except('archivo', 'idvr');
         $vr = null;
         if ($request->has('idvo')) {
-            $vr = CronogramaVacaciones::find((int)$request->idvo);
+            $vr = CronogramaVacaciones::find((int) $request->idvo);
             if ($vr) {
                 $data['personal_id'] = $vr->personal_id;
                 $data['idvo'] = $vr->idvo !== null ? $vr->idvo : $vr->id;
@@ -264,15 +265,15 @@ class CronogramaController extends Controller
 
     public function consultarIndividuo($id)
     {
-        $cronogramas=DB::table('personal  as p')
-        ->select('v.id as vinculo','cr.id','cr.nombredoc','cr.nrodoc', 'cr.observaciones','cr.fecha_ini','cr.archivo','cr.estado' ,'c.nombre as cargo', 'a.nombre as area', 'r.nombre as regimen','cr.periodo','cr.mes')
-        ->leftjoin('vinculos as v', 'v.personal_id', '=', 'p.id_personal')
-        ->leftjoin('cargo as c', 'c.id', '=', 'v.id_cargo')
-        ->leftjoin('area as a', 'a.id', '=', 'v.id_unidad_organica')
-        ->leftjoin('regimen as r', 'r.id', '=', 'v.id_regimen')
-        ->join('cronograma_vac as cr','cr.idvinculo','=','v.id')
-        ->where('p.id_personal',$id)->get();
-        $reporte=view('vacaciones.tablacronograma',array('cronogramas'=>$cronogramas))->render();
+        $cronogramas = DB::table('personal  as p')
+            ->select('v.id as vinculo', 'cr.id', 'cr.nombredoc', 'cr.nrodoc', 'cr.observaciones', 'cr.fecha_ini', 'cr.archivo', 'cr.estado', 'c.nombre as cargo', 'a.nombre as area', 'r.nombre as regimen', 'cr.periodo', 'cr.mes')
+            ->leftjoin('vinculos as v', 'v.personal_id', '=', 'p.id_personal')
+            ->leftjoin('cargo as c', 'c.id', '=', 'v.id_cargo')
+            ->leftjoin('area as a', 'a.id', '=', 'v.id_unidad_organica')
+            ->leftjoin('regimen as r', 'r.id', '=', 'v.id_regimen')
+            ->join('cronograma_vac as cr', 'cr.idvinculo', '=', 'v.id')
+            ->where('p.id_personal', $id)->get();
+        $reporte = view('vacaciones.tablacronograma', array('cronogramas' => $cronogramas))->render();
         if ($cronogramas) {
             return response()->json([
                 'rpta' => 'ok',
@@ -285,18 +286,19 @@ class CronogramaController extends Controller
             ], 404);
         }
     }
-    public function guardarIndividual( Request $request){
-        $datos= $request->input('datos');
-        
+    public function guardarIndividual(Request $request)
+    {
+        $datos = $request->input('datos');
+
         if ($request->input("datos") != null) {
-            
+
             $cronogramas = json_decode($datos);
             foreach ($cronogramas as $item) {
-                
+
                 if ($item->cambio == 1) {
 
                     if ($item->id > 0) {
-                        
+
                         $cronograma = CronogramaVacaciones::find($item->id);
                         Log::info($cronograma->periodo);
                         $cronograma->periodo = $item->periodo;
@@ -331,19 +333,45 @@ class CronogramaController extends Controller
     }
 
 
-    public function cronogramarMasivo()
+    public function cronogramarMasivo(int $periodo = null)
     {
-        $anio = Carbon::now()->year + 1;
-        $cronogramados = DB::table('cronograma_vac')->where('periodo', $anio)->pluck('idvinculo');
+        $tiposdoc = Tipodoc::all();
+        $periodo = $periodo ?? Carbon::now()->year + 1;
+
+        $cronogramados = DB::table('cronograma_vac')->where('periodo', $periodo)->pluck('idvinculo');
+        $historial = DB::table('cronograma_vac')->where('periodo', $periodo - 1)->pluck('mes', 'idvinculo');
         $trabajadores = DB::table('personal as p')
             ->select('p.*', 'v.id as vinculo', 'c.nombre as cargo', 'a.nombre as area', 'r.nombre as regimen')
             ->leftjoin('vinculos as v', 'v.personal_id', '=', 'p.id_personal')
             ->leftjoin('cargo as c', 'c.id', '=', 'v.id_cargo')
             ->leftjoin('area as a', 'a.id', '=', 'v.id_unidad_organica')
             ->leftjoin('regimen as r', 'r.id', '=', 'v.id_regimen')
+            ->whereRaw('? >= YEAR(v.fecha_ini)', [$periodo])->where(function ($query) use ($periodo) {
+                $query->whereNull('v.fecha_fin')->orWhereRaw('? <= YEAR(v.fecha_fin)', [$periodo]); })
             ->whereNotIn('v.id', $cronogramados)
             ->get();
-        return view('vacaciones.cronogramarMasivo', array('trabajadores' => $trabajadores));
+        // Agregar columna "mes" a cada trabajador según historial
+        $trabajadores->transform(function ($trabajador) use ($historial) {
+            $trabajador->mes = $historial[$trabajador->vinculo] ?? null;
+            return $trabajador;
+        });
+
+        $documentos = DB::table('cronograma_vac')
+            ->select('nombredoc', 'nrodoc')
+            ->distinct()
+            ->where('periodo', '=', $periodo)
+            ->orderBy('nombredoc')
+            ->orderBy('nrodoc')
+            ->get();
+        return view(
+            'vacaciones.cronogramarMasivo',
+            array(
+                'trabajadores' => $trabajadores,
+                'tiposdoc' => $tiposdoc,
+                'periodo' => $periodo,
+                'documentos' => $documentos
+            )
+        );
     }
 
     public function guardarCronogramaMasivo(Request $request)
@@ -360,11 +388,37 @@ class CronogramaController extends Controller
             $programacion->nombredoc = $tipoDocumento;
             $programacion->nrodoc = $nroDocVac;
             $programacion->periodo = $periodo;
+            $programacion->dias = 30;
             $programacion->mes = $mes;
             //$programacion->fecha_ini=
             $programacion->observaciones = $observaciones;
             $programacion->save();
         }
         return response()->json(['rpta' => 'ok', 'mensaje' => 'Se ha guardado correctamente']);
+    }
+
+    public function generarVacacionesMasivo(int $periodo, string $mes)
+    {
+        $periodo = $periodo ?? Carbon::now()->year + 1;
+        $mes = $mes ?? 'ENERO';
+        $tiposdoc = Tipodoc::all();
+        $registros = DB::table('cronograma_vac as c')
+            ->select('c.*', 'v.*', 'p.*','r.nombre as regimen') // selecciona todas las columnas de las tres tablas
+            ->join('vinculos as v', 'c.idvinculo', '=', 'v.id')
+            ->leftjoin('regimen as r', 'r.id', '=', 'v.id_regimen')
+            ->join('personal as p', 'p.id_personal', '=', 'v.personal_id')
+            ->where('c.periodo', $periodo)
+            ->where('c.mes', $mes)
+            ->get();
+        return view(
+            'vacaciones.generarVacacionesMasivo',
+            array(
+                'registros' => $registros,
+                'periodo' => $periodo,
+                'mes' => $mes,
+                'tiposdoc'=>$tiposdoc
+            )
+        );
+
     }
 }
