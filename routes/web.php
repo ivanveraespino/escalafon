@@ -291,7 +291,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/generar-fotocheck', [InformeController::class, 'generarFotocheck'])->name('generarFotocheck');
     Route::get('/generar-fotocheck-masivo', [InformeController::class, 'generarFotocheckMasivo'])->name('generarFotocheckMasivo');
 
-    
+
     Route::post('/subir-carga', [RepositorioController::class, 'subirCarga']);
 
     Route::get('/datos-vinculo', [VinculoController::class, 'datosVinculo']);
@@ -303,13 +303,16 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('cronogramar-masivo/{periodo?}', [CronogramaController::class, 'cronogramarMasivo'])->name('cronogramarMasivo');
     Route::get('cronogramar-individual', [CronogramaController::class, 'cronogramarIndividual'])->name('cronogramarIndividual');
-    
+
     Route::get('guardar-cronograma-masivo', [CronogramaController::class, 'guardarCronogramaMasivo'])->name('guardarCronogramaMasivo');
     Route::get('generar-vacaciones-masivo/{periodo?}/{mes?}', [CronogramaController::class, 'generarVacacionesMasivo'])->name('generarVacacionesMasivo')->defaults('periodo', date('Y'))->defaults('mes', date('ENERO'));
 
     Route::get('/consultar-individuo/{id}', [CronogramaController::class, 'consultarIndividuo']);
     Route::POST('/guardar-individual', [CronogramaController::class, 'guardarIndividual']);
     Route::get('/reporte-cronograma/{nombredoc}/{nrodoc}', [ReporteController::class, 'generarCronograma'])->name('generarCronograma');
+    Route::post('/generar-word', [CronogramaController::class, 'generarWord']);
+    // routes/web.php
+    Route::post('/cronograma/import', [CronogramaController::class, 'import'])->name('cronograma.import');
 
 });
 
@@ -326,4 +329,5 @@ Route::get('consultar-provincia', [PersonalController::class, 'obtenerProvincias
 Route::get('consultar-distritos', [PersonalController::class, 'obtenerDistritos'])->name('consultarDistrito');
 Route::post('/subir-archivo', [RepositorioController::class, 'subirArchivo']);
 Route::get('/perfil', [InformeController::class, 'perfilPersonal'])->name('perfilPersonal');
+
 

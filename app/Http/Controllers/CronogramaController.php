@@ -16,6 +16,11 @@ use Carbon\Carbon;
 use App\Models\Personal;
 use Illuminate\Support\Str;
 use DB;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\SimpleType\Jc;
+use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\Shared\Converter;
+use PhpOffice\PhpWord\Settings; // Importante añadir esta
 
 use App\Models\VacacionesRe;
 use App\Models\Vinculo;
@@ -347,7 +352,8 @@ class CronogramaController extends Controller
             ->leftjoin('area as a', 'a.id', '=', 'v.id_unidad_organica')
             ->leftjoin('regimen as r', 'r.id', '=', 'v.id_regimen')
             ->whereRaw('? >= YEAR(v.fecha_ini)', [$periodo])->where(function ($query) use ($periodo) {
-                $query->whereNull('v.fecha_fin')->orWhereRaw('? <= YEAR(v.fecha_fin)', [$periodo]); })
+                $query->whereNull('v.fecha_fin')->orWhereRaw('? <= YEAR(v.fecha_fin)', [$periodo]);
+            })
             ->whereNotIn('v.id', $cronogramados)
             ->get();
         // Agregar columna "mes" a cada trabajador según historial
@@ -403,7 +409,7 @@ class CronogramaController extends Controller
         $mes = $mes ?? 'ENERO';
         $tiposdoc = Tipodoc::all();
         $registros = DB::table('cronograma_vac as c')
-            ->select('c.*', 'v.*', 'p.*','r.nombre as regimen') // selecciona todas las columnas de las tres tablas
+            ->select('c.*', 'v.*', 'p.*', 'r.nombre as regimen') // selecciona todas las columnas de las tres tablas
             ->join('vinculos as v', 'c.idvinculo', '=', 'v.id')
             ->leftjoin('regimen as r', 'r.id', '=', 'v.id_regimen')
             ->join('personal as p', 'p.id_personal', '=', 'v.personal_id')
@@ -416,9 +422,269 @@ class CronogramaController extends Controller
                 'registros' => $registros,
                 'periodo' => $periodo,
                 'mes' => $mes,
-                'tiposdoc'=>$tiposdoc
+                'tiposdoc' => $tiposdoc
             )
         );
 
     }
+
+    public function generarWord(Request $request)
+    {
+        $datos = $request->input('datos');
+        $periodo = $request->input('periodo');
+        $mes = $request->input('mes');
+        $tipodoc = $request->input('tipodoc');
+        $inicio = $request->input('inicio');
+        $anioActual = date('Y');
+        // Establecer la configuración regional a español
+        setlocale(LC_TIME, 'es_ES.UTF-8');
+        $meses = [
+            "ENERO",
+            "FEBRRO",
+            "MARZO",
+            "ABRIL",
+            "MAYO",
+            "JUNIO",
+            "JULIO",
+            "AGOSTO",
+            "SETIEMBRE",
+            "OCTUBRE",
+            "NOVIEMBRE",
+            "DICIEMBRE"
+        ];
+
+        $protocolo = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+        $dominio = $_SERVER['HTTP_HOST'];
+        // Obtener la ruta base del dominio
+        $rutaDominio = $protocolo . '://' . $dominio;
+        $phpWord = new PhpWord();
+        $section = $phpWord->addSection();
+
+        // --- CONFIGURACIÓN DE IDIOMA PERÚ ---
+// Establece el idioma predeterminado del documento a Español (Perú)
+        $phpWord->getSettings()->setThemeFontLang(new \PhpOffice\PhpWord\Style\Language('es-PE'));
+
+        // --- 1. ENCABEZADO (Logos y Título) ---
+        $header = $section->addHeader();
+        $tableHeader = $header->addTable();
+        $tableHeader->addRow();
+        // Logo Izquierdo (Muni)
+        $tableHeader->addCell(2000)->addImage($rutaDominio . '/img/logo_informe.png', ['width' => 60]);
+        $cellMid = $tableHeader->addCell(6000);
+        $cellMid->addText("MUNICIPALIDAD PROVINCIAL DE LA CONVENCIÓN", ['bold' => true, 'size' => 12], ['alignment' => Jc::CENTER]);
+        $cellMid->addText("OFICINA DE GESTIÓN DE RECURSOS HUMANOS", ['bold' => true, 'size' => 10], ['alignment' => Jc::CENTER]);
+        $cellMid->addText('"Año de la recuperación y consolidación de la economía peruana"', ['italic' => true, 'size' => 8], ['alignment' => Jc::CENTER]);
+        // Logo Derecho (Escudo)
+        // $tableHeader->addCell(2000)->addImage('ruta/logo_peru.png', ['width' => 60]);
+        Log::debug('Variable:', ['data' => $datos]);
+
+
+        foreach ($datos as $item) {
+            // --- 2. CUERPO DEL MEMORÁNDUM ---
+            $section->addTextBreak(1);
+            $section->addText("$tipodoc N° $inicio-$anioActual-OGRH-MPLC", ['bold' => true, 'underline' => 'single'], ['alignment' => Jc::CENTER]);
+            $tableInfo = $section->addTable();
+            $styleInfo = ['size' => 10];
+            $rows = [
+                ['DE', ': '],
+                ['', '  Jefe de la Oficina de Gestión de Recursos Humanos-MPLC'],
+                ['A', ': '],
+                ['C/C', ': '],
+                ['ASUNTO', ': SE OTORGA VACACIONES PENDIENTES DEL PERIODO ' . $periodo . 'PROGRAMADOS PARA EL MES DE' . $mes],
+                ['FECHA', ': QUILLABAMBA, ' . date('d') . " de " . $meses[date('n') - 1] . " del " . date('Y')]
+            ];
+            foreach ($rows as $row) {
+                $tableInfo->addRow();
+                $tableInfo->addCell(2000)->addText($row[0], ['bold' => true] + $styleInfo);
+                $tableInfo->addCell(7000)->addText($row[1], $styleInfo);
+            }
+            $section->addTextBreak(1);
+            // --- 3. CONTENIDO PRINCIPAL ---
+            $textRun = $section->addTextRun(['alignment' => Jc::BOTH]);
+            $textRun->addText("Previo un cordial saludo me dirijo a Ud., a efectos de comunicarle en atención del documento de la referencia... ");
+            $textRun = $section->addTextRun(['alignment' => Jc::BOTH]);
+            $textRun->addText("En el marco del artículo 2° del decleto legislativo N° 1405, a travez del cual se otorga a los servidores públicos entre otros derechos, el derecho al descanso vacacional remunerado durante 30 días naturales y se disfruta permanentemente de forma efectiva e ininterrumpida, la oportunidad al descanso vacacional se fija de común acuerdo entre el servidor y la entidad; a falta de acuerdo decide la entidad y está condicionada a que el servidor cumpla el record vacacional establecido. Ademas se contabiliza los días de: licencias y permisos,  que se resumen de la siguiente manera:");
+
+
+            $licencias = DB::table('licencias as l')
+                ->select('l.*') // selecciona todas las columnas de las tres tablas
+
+                ->where('l.idvinculo', $item['idvinculo'])
+                ->where('l.periodo', $periodo - 1)
+                ->where('l.acuentavac', 1)
+                ->get();
+
+
+            // Crear un nuevo TextRun para mantener consistencia
+            $textRun = $section->addTextRun(['alignment' => Jc::BOTH]);
+            $textRun->addText('Licencias registradas del periodo ' . ($periodo - 1), ['bold' => true, 'size' => 12]);
+
+            // Crear tabla en Word
+            if ($licencias->count() > 0) {
+                $table = $section->addTable([
+                    'borderSize' => 6,
+                    'borderColor' => '000000',
+                    'cellMargin' => 80,
+                ]);
+
+                // Encabezados de la tabla (ajusta según tus columnas)
+                $table->addRow();
+                $table->addCell(2000)->addText('Documento');
+                $table->addCell(3000)->addText('Motivo');
+                $table->addCell(3000)->addText('Fecha Inicio');
+                $table->addCell(3000)->addText('Fecha Fin');
+                $table->addCell(3000)->addText('Duración');
+
+
+                // Filas con datos
+                foreach ($licencias as $licencia) {
+                    $table->addRow();
+                    $table->addCell(2000)->addText($licencia->nombredoc . ' ' . $licencia->nrodoc);
+                    $table->addCell(3000)->addText($licencia->descripcion);
+                    $table->addCell(3000)->addText($licencia->fecha_inicio);
+                    $table->addCell(3000)->addText($licencia->fecha_fin);
+                    // Construir texto de días, meses y años
+                    $nrodias = $licencia->dias > 0 ? $licencia->dias . ' día(s) ' : '';
+                    $nromeses = $licencia->mes > 0 ? $licencia->mes . ' mes(es) ' : '';
+                    $nroanios = $licencia->anio > 0 ? $licencia->anio . ' año(s)' : '';
+
+                    $duracion = trim($nrodias . $nromeses . $nroanios);
+
+                    // Agregar a la celda
+                    $table->addCell(3000)->addText($duracion);
+
+                }
+            } else {
+                $section->addText("No existen licencias registradas para este vínculo en el periodo indicado.");
+            }
+
+
+            $permisos = DB::table('permisos as p')
+                ->select('p.*') // selecciona todas las columnas de las tres tablas
+
+                ->where('p.idvinculo', $item['idvinculo'])
+                ->where('p.periodo', $periodo - 1)
+                ->where('p.acuentavac', 1)
+                ->get();
+            // Crear un nuevo TextRun para mantener consistencia
+            $textRun = $section->addTextRun(['alignment' => Jc::BOTH]);
+            $textRun->addText('Permisos registrados del periodo ' . ($periodo - 1), ['bold' => true, 'size' => 12]);
+
+            // Crear tabla en Word
+            if ($permisos->count() > 0) {
+                $table = $section->addTable([
+                    'borderSize' => 6,
+                    'borderColor' => '000000',
+                    'cellMargin' => 80,
+                ]);
+
+                // Encabezados de la tabla (ajusta según tus columnas)
+                $table->addRow();
+                $table->addCell(2000)->addText('Documento');
+                $table->addCell(3000)->addText('Fecha Inicio');
+                $table->addCell(3000)->addText('Fecha Fin');
+                $table->addCell(3000)->addText('Motivo');
+                $table->addCell(3000)->addText('Duración');
+
+                // Filas con datos
+                foreach ($permisos as $permiso) {
+                    $table->addRow();
+                    $table->addCell(2000)->addText($permiso->idpermiso);
+                    $table->addCell(3000)->addText($permiso->fecha_inicio);
+                    $table->addCell(3000)->addText($permiso->fecha_fin);
+                    $table->addCell(3000)->addText($permiso->descripcion);
+                    // Construir texto de días, meses y años
+                    $nrodias = $permiso->dias > 0 ? $permiso->dias . ' día(s) ' : '';
+                    $nromeses = $permiso->mes > 0 ? $permiso->mes . ' mes(es) ' : '';
+                    $nroanios = $permiso->anio > 0 ? $permiso->anio . ' año(s)' : '';
+
+                    $duracion = trim($nrodias . $nromeses . $nroanios);
+
+                    // Agregar a la celda
+                    $table->addCell(3000)->addText($duracion);
+                }
+            } else {
+                $section->addText("No existen permisos registrados para este vínculo en el periodo indicado.");
+            }
+            // --- 4. CIERRE Y FIRMA ---
+            $section->addTextBreak(2);
+            $section->addText("Atentamente,", null, ['alignment' => Jc::CENTER]);
+            $section->addTextBreak(3);
+            $section->addText("__________________________", null, ['alignment' => Jc::CENTER]);
+            $section->addText("JEFE DE RECURSOS HUMANOS", ['size' => 9], ['alignment' => Jc::CENTER]);
+            // Insertar salto de página
+            $section->addPageBreak();
+            $inicio++;
+        }
+
+        $fileName = 'Documento_' . now()->format('YmdHis') . '.docx';
+        $tempPath = storage_path('app/' . $fileName);
+
+        $writer = IOFactory::createWriter($phpWord, 'Word2007');
+        $writer->save($tempPath);
+
+        return response()->download($tempPath, $fileName)->deleteFileAfterSend(true);
+    }
+
+    public function import(Request $request)
+    {
+        // Validar que se subió un archivo
+        $request->validate([
+            'archivo' => 'required|file|mimes:csv,txt',
+        ]);
+
+        $periodo = $request->input('periodo');
+        $mesVacaciones = $request->input('mes-vacaciones');
+        $tipoDocVac = $request->input('tipo-doc-vac');
+        $nroDocVac = $request->input('nro-doc-vac');
+
+        // Si se subió archivo CSV
+        if ($request->hasFile('archivo')) {
+            $archivo = $request->file('archivo');
+            $ruta = $archivo->store('cronogramas'); // guarda en storage/app/cronogramas
+        }
+
+        // Leer archivo CSV
+        $path = $request->file('archivo')->getRealPath();
+        $file = fopen($path, 'r');
+
+        // Saltar encabezado si existe
+        fgetcsv($file);
+
+        while (($data = fgetcsv($file, 1000, ';')) !== FALSE) {
+            // $data es un array con cada columna
+            Log::debug('Variable:', ['data' => $data[0]]);
+            $personal = Personal::where(['nro_documento_id' => $data[0]])->first();
+
+            $vinculo = DB::table('vinculos')
+                ->select('id')
+                ->where('personal_id', $personal->id_personal)
+                ->where('fecha_ini', '<', DB::raw('GETDATE()'))
+                ->where(function ($query) {
+                    $query->where('fecha_fin', '>', DB::raw('GETDATE()'))
+                        ->orWhereNull('fecha_fin');
+                })
+                ->where('fecha_ini', '<', '2027-01-01')
+                ->first(); // solo el primer registro
+            if ($vinculo) {
+                DB::table('cronograma_vac')->insert([
+                    'nrodoc' => $nroDocVac,
+                    'periodo' => $periodo,
+                    'mes' => $data[1],
+                    'fecha_ini' => $data[2],
+                    'fecha_fin' => $data[3],
+                    'dias' => 30,
+                    'nombredoc' => $tipoDocVac,
+                    'idvinculo' => $vinculo->id,
+                ]);
+            }
+
+        }
+
+        fclose($file);
+
+        return back()->with('success', 'Archivo procesado y licencias guardadas correctamente.');
+    }
+
+
 }
